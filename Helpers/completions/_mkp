@@ -1,0 +1,18 @@
+#compdef mkp
+
+_mkp() {
+  local templates_dir="$HOME/Helpers/templates"
+
+  case $CURRENT in
+    2)
+      local -a templates
+      templates=("${(@f)$(ls "$templates_dir" 2>/dev/null)}")
+      _describe 'template' templates
+      ;;
+    3)
+      _directories
+      ;;
+  esac
+}
+
+_mkp "$@"

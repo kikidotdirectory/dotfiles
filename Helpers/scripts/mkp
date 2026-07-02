@@ -1,0 +1,39 @@
+#!/bin/bash
+
+TEMPLATES_DIR="$HOME/Helpers/templates"
+PROJECT_NAME=$1
+
+if [ -z "$PROJECT_NAME" ]; then
+  echo "Usage: $0 <template-name>"
+  echo "Available templates:"
+  ls "$TEMPLATES_DIR"
+  exit 1
+fi
+
+TEMPLATE="$TEMPLATES_DIR/$PROJECT_NAME"
+
+if [ ! -d "$TEMPLATE" ]; then
+  echo "Error: Template '$PROJECT_NAME' not found in $TEMPLATES_DIR"
+  echo "Available templates:"
+  ls "$TEMPLATES_DIR"
+  exit 1
+fi
+
+# Use current directory name or prompt for project name
+DEST=${2:-$(basename "$PWD")}
+
+if [ -d "$DEST" ]; then
+  echo "Error: Directory '$DEST' already exists."
+  exit 1
+fi
+
+cp -r "$TEMPLATE" "$DEST"
+rm -rf "$DEST/.git"
+
+DEST_PATH="$(pwd)/$DEST"
+
+git -C "$DEST_PATH" init
+git -C "$DEST_PATH" add .
+git -C "$DEST_PATH" commit -m "Initial commit"
+
+nvim "$DEST_PATH"

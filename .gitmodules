@@ -1,0 +1,9 @@
+[submodule "Helpers/templates/lume-starter"]
+	path = Helpers/templates/lume-starter
+	url = git@github.com:kikidotdirectory/lume-starter.git
+[submodule "Helpers/templates/eleventy-starter-project"]
+	path = Helpers/templates/eleventy-starter-project
+	url = git@github.com:kikidotdirectory/eleventy-starter-project.git
+[submodule "Helpers/utilities/keylogger"]
+	path = Helpers/utilities/keylogger
+	url = https://github.com/caseyscarborough/keylogger

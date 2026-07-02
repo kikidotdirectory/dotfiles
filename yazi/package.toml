@@ -1,0 +1,39 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "d1c8baa"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "9a52857"
+hash = "63b6c222bf2103b3023389dde5e2ecfe"
+
+[[plugin.deps]]
+use = "stelcodes/bunny"
+rev = "7137a44"
+hash = "58bfa473bcac8574400e573787954512"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "9276ffa"
+hash = "9b9a8e91898a73c1211788a4ed30336"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "9276ffa"
+hash = "b7f67b15a9f94f408d94b9630465c37a"
+
+[[flavor.deps]]
+use = "gosxrgxx/flexoki-light"
+rev = "45eb0a0"
+hash = "80ba3eec4bf0b9770b1558c26b5b4a72"
+
+[[flavor.deps]]
+use = "gosxrgxx/flexoki-dark"
+rev = "28e1977"
+hash = "bc4620db89cf55bd91906c239f8fa1a8"
+
+[[flavor.deps]]
+use = "Chromium-3-Oxide/everforest-medium"
+rev = "4eede31"
+hash = "2f79b3c6afefef9b1c269edd38b45fab"

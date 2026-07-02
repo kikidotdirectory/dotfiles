@@ -1,0 +1,8 @@
+[mgr]
+show_hidden = true
+
+[opener]
+edit = [
+    { run = "cd %d1 && $EDITOR %s1", block = true },
+]
+

@@ -1,0 +1,8 @@
+# Enable completion
+autoload -U compinit; compinit
+
+_comp_options+=(globdots) # With hidden files
+source $DOTFILES/config/zsh/completion.zsh
+
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+

@@ -1,0 +1,79 @@
+set -o autopushd
+
+
+# Environment Variables ──────────────────────────────────────────────
+
+export EDITOR=nvim
+export VISUAL=nvim
+
+# PATH ───────────────────────────────────────────────────────────────
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/Helpers/scripts:$PATH"
+
+
+# Toolchain Initialisation ───────────────────────────────────────────
+
+# fnm – fast Node version manager; auto-switches version on cd
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# direnv – loads/unloads .envrc files per directory
+eval "$(direnv hook zsh)"
+
+# Deno runtime environment
+. "/Users/kiki/.deno/env"
+
+# Starship shell prompt
+eval "$(starship init zsh)"
+
+# Zoxide, cd replacement
+eval "$(zoxide init zsh)"
+
+# SSH ────────────────────────────────────────────────────────────────
+
+# Load SSH keys from macOS Keychain silently
+ssh-add --apple-load-keychain -q
+
+
+# Functions ──────────────────────────────────────────────────────────
+
+# y – Yazi file manager wrapper that changes the shell's working
+#     directory to wherever you navigate when you quit Yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+n ()
+{
+    # Block nesting of nnn in subshells
+    [ "${NNNLVL:-0}" -eq 0 ] || {
+        echo "nnn is already running"
+        return
+    }
+
+    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
+    # see. To cd on quit only on ^G, remove the "export" and make sure not to
+    # use a custom path, i.e. set NNN_TMPFILE *exactly* as follows:
+    #      NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    # The command builtin allows one to alias nnn to n, if desired, without
+    # making an infinitely recursive alias
+    command nnn -e "$@"
+
+    [ ! -f "$NNN_TMPFILE" ] || {
+        . "$NNN_TMPFILE"
+        rm -f -- "$NNN_TMPFILE" > /dev/null
+    }
+}

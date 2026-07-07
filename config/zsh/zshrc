@@ -27,6 +27,8 @@ compdef _p p
 # Deno runtime environment
 . "/Users/kiki/.deno/env"
 
+eval "$(fnm env --use-on-cd --shell zsh)"
+
 # SSH ────────────────────────────────────────────────────────────────
 
 # Load SSH keys from macOS Keychain silently

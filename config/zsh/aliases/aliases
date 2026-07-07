@@ -1,0 +1,4 @@
+alias e="$EDITOR "
+alias zshrc="$ZDOTDIR/.zshrc"
+alias code="code --wait"
+alias zed="zed --wait"

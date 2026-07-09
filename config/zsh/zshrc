@@ -9,6 +9,9 @@ source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Aliases
 source $DOTFILES/config/zsh/aliases/aliases
 
+# Functions
+source $DOTFILES/config/zsh/functions.zsh
+
 p() {
   if [[ -z "$1" ]]; then
     cd ~/Projects

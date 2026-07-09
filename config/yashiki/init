@@ -1,0 +1,90 @@
+#!/bin/sh
+
+# Add Homebrew to exec path (if needed for custom layout engines)
+# yashiki add-exec-path /opt/homebrew/bin
+
+# Layout configuration
+yashiki layout-set-default tatami
+yashiki set-outer-gap 10  # Gap between windows and screen edges (global)
+yashiki layout-cmd --layout tatami set-inner-gap 10  # Gap between windows (layout-specific)
+
+# Cursor warp (mouse follows focus)
+yashiki set-cursor-warp on-focus-change
+
+# Tag bindings (tag N = bitmask $((1<<(N-1))))
+for i in 1 2 3 4 5 6 7 8 9; do
+  yashiki bind "alt-$i" tag-view "$((1<<(i-1)))"
+  yashiki bind "alt-shift-$i" window-move-to-tag "$((1<<(i-1)))"
+  yashiki bind "alt-ctrl-$i" window-toggle-tag "$((1<<(i-1)))"
+done
+
+# Window focus
+yashiki bind alt-ctrl-left window-focus left
+yashiki bind alt-ctrl-right window-focus right
+yashiki bind alt-ctrl-up window-focus up
+yashiki bind alt-ctrl-down window-focus down
+
+# Window management
+yashiki bind alt-f window-toggle-fullscreen
+yashiki bind alt-shift-f window-toggle-float
+yashiki bind alt-shift-c window-close
+yashiki bind alt-ctrl-shift-right window-swap right
+yashiki bind alt-ctrl-shift-left window-swap left
+yashiki bind alt-ctrl-shift-down window-swap down
+yashiki bind alt-ctrl-shift-up window-swap up
+
+# Multi-monitor
+yashiki bind alt-o output-focus next
+yashiki bind alt-shift-o output-send next
+
+# Keybinding modes (river-style)
+yashiki declare-mode resize
+yashiki declare-mode passthrough
+
+# Enter resize/passthrough mode
+yashiki bind alt-r enter-mode resize
+yashiki bind alt-p enter-mode passthrough
+
+# Resize mode: h/j/k/l to adjust layout, escape/return to exit
+yashiki bind --mode resize left layout-cmd dec-main-ratio
+yashiki bind --mode resize right layout-cmd inc-main-ratio
+yashiki bind --mode resize down layout-cmd dec-main-count
+yashiki bind --mode resize up layout-cmd inc-main-count
+yashiki bind --mode resize escape enter-mode normal
+yashiki bind --mode resize return enter-mode normal
+
+# Passthrough mode: all keys pass through, alt-p to exit
+yashiki bind --mode passthrough alt-p enter-mode normal
+
+# Window rules - Float dialogs and utilities
+yashiki rule-add --app-name Finder ignore
+yashiki rule-add --app-name "System Settings" ignore
+yashiki rule-add --app-name "System Preferences" ignore
+yashiki rule-add --subrole Dialog float
+yashiki rule-add --subrole FloatingWindow float
+yashiki rule-add --fullscreen-button none float
+
+# Ignore all windows with non-normal window level
+yashiki rule-add --window-level other ignore
+
+# Float windows without fullscreen button (likely dialogs/sheets)
+yashiki rule-add --fullscreen-button none float
+
+# Ignore windows without close button (likely popups/tooltips)
+yashiki rule-add --close-button none ignore
+
+# Window rules - App-specific
+yashiki rule-add --app-id com.kagi.kagimacOS --close-button none ignore
+yashiki rule-add --app-id com.kagi.kagimacOS tags 1        # Orion on tag 1
+yashiki rule-add --app-id com.mitchellh.ghostty tags 2     # Ghostty on tag 2
+yashiki rule-add --app-name *Figma* tags 4                 # Figma on tag 3
+yashiki rule-add --app-name Safari --title "*Web Inspector*" float
+yashiki rule-add --app-name Vivaldi --title "*Vivaldi Settings*" float
+yashiki rule-add --app-name Music ignore
+yashiki rule-add --app-name Doppler ignore
+yashiki rule-add --app-name Ghostty output 2
+
+# Ghostty Quick Terminal - float (still managed, but excluded from tiling)
+yashiki rule-add --ax-id "com.mitchellh.ghostty.quickTerminal" ignore
+
+yashiki set-auto-raise enabled --delay 100

@@ -17,6 +17,8 @@ source $DOTFILES/config/zsh/functions.zsh
 
 eval "$(fnm env --use-on-cd --shell zsh)"
 
+eval "$(direnv hook zsh)"
+
 # SSH ────────────────────────────────────────────────────────────────
 
 # Load SSH keys from macOS Keychain silently

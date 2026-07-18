@@ -1,0 +1,145 @@
+{
+  "actions" : [
+    {
+      "key" : "t",
+      "type" : "application",
+      "value" : "/System/Applications/Utilities/Terminal.app"
+    },
+    {
+      "actions" : [
+        {
+          "iconPath" : "text.append",
+          "key" : "a",
+          "label" : "Append",
+          "type" : "url",
+          "value" : "shortcuts://run-shortcut?name=Append%20text%20to%20daily%20note"
+        },
+        {
+          "iconPath" : "arrow.up.right.square",
+          "key" : "A",
+          "label" : "Append+",
+          "type" : "url",
+          "value" : "obsidian://daily?vault=meandering"
+        },
+        {
+          "iconPath" : "text.append",
+          "key" : "p",
+          "label" : "Paste",
+          "type" : "url",
+          "value" : "shortcuts://run-shortcut?name=Append%20clipboard%20to%20daily%20note"
+        },
+        {
+          "iconPath" : "arrow.up.right.square",
+          "key" : "P",
+          "label" : "Paste+",
+          "type" : "application",
+          "value" : ""
+        },
+        {
+          "iconPath" : "arrow.up.right.square",
+          "key" : "i",
+          "label" : "View inbox",
+          "type" : "url",
+          "value" : "alfred://runtrigger/kiki.directory.helpers/view-obsidian-dir/?argument=inbox"
+        },
+        {
+          "iconPath" : "arrow.up.right.square",
+          "key" : "u",
+          "label" : "View inbox",
+          "type" : "url",
+          "value" : "alfred://runtrigger/kiki.directory.helpers/view-obsidian-dir/?argument=currently"
+        },
+        {
+          "key" : "t",
+          "label" : "Docs",
+          "type" : "url",
+          "value" : "https://obsidian.md/help/"
+        },
+        {
+          "key" : "T",
+          "label" : "Dev docs",
+          "type" : "url",
+          "value" : "https://docs.obsidian.md/"
+        }
+      ],
+      "iconPath" : "/Applications/Obsidian.app",
+      "key" : "o",
+      "label" : "Obsidian",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "l",
+          "type" : "url",
+          "value" : "alfred://runtrigger/kiki.directory.helpers/nvim-file/?argument=%2FUsers%2Fkiki%2Fdotfiles%2Fconfig%2Fleaderkey%2Fconfig.json"
+        },
+        {
+          "key" : "L",
+          "type" : "url",
+          "value" : "leaderkey://config-reload"
+        },
+        {
+          "actions" : [
+            {
+              "key" : "v",
+              "type" : "url",
+              "value" : "alfred://runtrigger/kiki.directory.helpers/nvim-file/?argument=%2FUsers%2Fkiki%2FDocuments%2Fmeandering%2F.obsidian.vimrc"
+            }
+          ],
+          "iconPath" : "/Applications/Obsidian.app",
+          "key" : "o",
+          "type" : "group"
+        }
+      ],
+      "key" : "c",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "p",
+          "label" : "view projects directory",
+          "type" : "url",
+          "value" : "alfred://runtrigger/kiki.directory.helpers/view-dir-contents/?argument=~%2FProjects"
+        },
+        {
+          "key" : "h",
+          "type" : "folder",
+          "value" : "/Users/kiki"
+        },
+        {
+          "key" : "c",
+          "type" : "folder",
+          "value" : "/Users/kiki/.config"
+        }
+      ],
+      "key" : "e",
+      "label" : "Explore",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "actions" : [
+            {
+              "key" : "o",
+              "type" : "url",
+              "value" : "alfred://runtrigger/kiki.directory.helpers/url-encode-clipboard/?argument=obsidian"
+            },
+            {
+              "key" : "a",
+              "type" : "url",
+              "value" : "alfred://runtrigger/kiki.directory.helpers/url-encode-clipboard/?argument=alfred"
+            }
+          ],
+          "key" : "e",
+          "type" : "group"
+        }
+      ],
+      "key" : "/",
+      "type" : "group"
+    }
+  ],
+  "type" : "group"
+}

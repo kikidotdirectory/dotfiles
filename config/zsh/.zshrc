@@ -1,10 +1,11 @@
 # Enable completion
-autoload -U compinit; compinit
+autoload -Uz compinit
+compinit
 
-_comp_options+=(globdots) # With hidden files
+_comp_options+=(globdots) # include hidden files
 source $DOTFILES/config/zsh/completion.zsh
 
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # Aliases
 source $DOTFILES/config/zsh/aliases/aliases
@@ -16,13 +17,8 @@ source $DOTFILES/config/zsh/functions.zsh
 . "/Users/kiki/.deno/env"
 
 eval "$(fnm env --use-on-cd --shell zsh)"
-
 eval "$(direnv hook zsh)"
+eval "$(zoxide init zsh)"
 
 # SSH ────────────────────────────────────────────────────────────────
-
-# Load SSH keys from macOS Keychain silently
 ssh-add --apple-load-keychain -q
-
-
-# Functions ──────────────────────────────────────────────────────────

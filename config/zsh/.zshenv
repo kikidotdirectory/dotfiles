@@ -11,10 +11,3 @@ export SAVEHIST=10000                   # Maximum events in history file
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-typeset -U path
-path=(
-  "$HOME/.local/bin"
-  "$HOME/.local/share/bob/nvim-bin"
-  "$path"
-)
-export PATH

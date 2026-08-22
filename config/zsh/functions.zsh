@@ -28,6 +28,12 @@ function cd_dir() {
 	local base="$1"
 	local query="$2"
 	local target
+
+	if [[ -z "$query"]]; then
+		cd "$base"
+		return
+	fi
+
 	target=$(fd --type d --base-directory "$base" -i "$query" |
 		awk '{ print gsub(/\//,"/"), $0 }' | sort -n | head -1 | cut -d' ' -f2-)
 	if [ -n "$target" ]; then

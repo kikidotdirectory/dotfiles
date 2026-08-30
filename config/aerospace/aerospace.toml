@@ -56,11 +56,15 @@ on-window-detected = [
   },
   {
     if = 'test %{app-bundle-id} = com.mitchellh.ghostty',
-    run = 'move-node-to-workspace G',
+    run = 'move-node-to-workspace T',
   },
   {
-    if = 'test %{app-bundle-id} = com.vivaldi.Vivaldi',
+    if = 'test %{app-bundle-id} = com.microsoft.VSCode',
     run = 'move-node-to-workspace V',
+  },
+  {
+    if = 'test %{app-bundle-id} = dev.zed.Zed',
+    run = 'move-node-to-workspace Z',
   },
   {
     if = 'test %{app-bundle-id} = com.flexibits.fantastical2.mac',
@@ -71,7 +75,7 @@ on-window-detected = [
     run = 'move-node-to-workspace M',
   },
   {
-    if = 'test %{app-bundle-id} = com.apple.reminders',
+    if = 'test %{app-bundle-id} = io.readwise.read',
     run = 'move-node-to-workspace R',
   },
   {
@@ -206,17 +210,32 @@ on-window-detected = [
 
     # App launcher workspaces
     # See: https://willschenk.com/howto/2025/how_to_turn_aerospace_into_an_application_launcher/
-    alt-g           = ['exec-and-forget open -a Ghostty',     'workspace G']
-    alt-v           = ['exec-and-forget open -a Vivaldi',     'workspace V']
-    alt-c           = ['exec-and-forget open -a Fantastical', 'workspace C']
-    alt-f           = ['exec-and-forget open -a Finder',      'workspace F']
-    alt-r           = ['exec-and-forget open -a Reminders',   'workspace R']
-    alt-a           = ['exec-and-forget open -a Anybox',      'workspace A']
-    alt-o           = ['exec-and-forget open -a Obsidian',    'workspace O']
-    alt-d           = ['exec-and-forget open -a Figma',       'workspace D']
-    alt-s           = ['exec-and-forget open -a Safari',      'workspace S']
-    alt-e           = ['exec-and-forget open -a Mail',        'workspace E']
-    alt-u           = ['exec-and-forget open -a Doppler',     'workspace U']
+    alt-t           = ['exec-and-forget open -a Ghostty',            'workspace T']
+    alt-v           = ['exec-and-forget open -b com.microsoft.VSCode', 'workspace V']
+    alt-c           = ['exec-and-forget open -a Fantastical',        'workspace C']
+    alt-f           = ['exec-and-forget open -a Finder',             'workspace F']
+    alt-r           = ['exec-and-forget open -a Reader',             'workspace R']
+    alt-a           = ['exec-and-forget open -a Anybox',             'workspace A']
+    alt-o           = ['exec-and-forget open -a Obsidian',           'workspace O']
+    alt-d           = ['exec-and-forget open -a Figma',              'workspace D']
+    alt-s           = ['exec-and-forget open -a Safari',             'workspace S']
+    alt-e           = ['exec-and-forget open -a Mail',               'workspace E']
+    alt-u           = ['exec-and-forget open -a Doppler',            'workspace U']
+    alt-z           = ['exec-and-forget open -a Zed',                'workspace Z']
+
+    # Move focused window to an app's workspace (mirrors alt-shift-1..9 for numbered workspaces)
+    alt-shift-t     = 'move-node-to-workspace T'
+    alt-shift-v     = 'move-node-to-workspace V'
+    alt-shift-c     = 'move-node-to-workspace C'
+    alt-shift-f     = 'move-node-to-workspace F'
+    alt-shift-r     = 'move-node-to-workspace R'
+    alt-shift-a     = 'move-node-to-workspace A'
+    alt-shift-o     = 'move-node-to-workspace O'
+    alt-shift-d     = 'move-node-to-workspace D'
+    alt-shift-s     = 'move-node-to-workspace S'
+    alt-shift-e     = 'move-node-to-workspace E'
+    alt-shift-u     = 'move-node-to-workspace U'
+    alt-shift-z     = 'move-node-to-workspace Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab         = 'workspace-back-and-forth'

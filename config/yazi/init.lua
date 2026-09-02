@@ -4,9 +4,9 @@ require("bunny"):setup({
   hops = {
     { key = "~",          path = "~",                         desc = "Home"         },
 		-- dot-files configuration
-    { key = { "c", "c" }, path = "~/dotfiles",                desc = ".config/"     },
-    { key = { "c", "n" }, path = "~/dotfiles/nvim",           desc = "nvim"         },
-    { key = { "c", "y" }, path = "~/dotfiles/yazi",           desc = "yazi"         },
+    { key = { "c", "c" }, path = "~/dotfiles",                desc = "dotfiles"     },
+    { key = { "c", "n" }, path = "~/dotfiles/config/nvim",           desc = "nvim"         },
+    { key = { "c", "y" }, path = "~/dotfiles/config/yazi",           desc = "yazi"         },
 
 		-- desktop-related locations
     { key = { "d", "d" }, path = "~/Documents",               desc = "Documents"    },
@@ -26,3 +26,7 @@ require("bunny"):setup({
   notify = false, -- Notify after hopping, default is false
   fuzzy_cmd = "fzf", -- Fuzzy searching command, default is "fzf"
 })
+
+require("zoxide"):setup {
+	update_db = true,
+}

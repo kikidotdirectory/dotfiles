@@ -4,6 +4,7 @@ typeset -U path fpath
 path=(
   "$HOME/.local/bin"
   "$HOME/.local/share/bob/nvim-bin" # nvim version management
+  "$DOTFILES/Helpers/mp"
   $path
 )
 
@@ -13,7 +14,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # eval "$(zoxide init zsh)"
 
 # Completions
-fpath=("$HOME/Helpers/completions" $fpath)
+fpath=("$DOTFILES/Helpers/mp" "$DOTFILES/install" $fpath)
 autoload -Uz compinit
 compinit
 

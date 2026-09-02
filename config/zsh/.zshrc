@@ -17,6 +17,8 @@ source $DOTFILES/config/zsh/functions.zsh
 . "/Users/kiki/.deno/env"
 
 eval "$(fnm env --use-on-cd --shell zsh)"
+command -v tab >/dev/null && source <(tab npm zsh)
+source <(tc complete zsh)
 eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
 

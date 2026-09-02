@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Add Homebrew to exec path (if needed for custom layout engines)
 # yashiki add-exec-path /opt/homebrew/bin
 
@@ -88,3 +86,6 @@ yashiki rule-add --app-name Ghostty output 2
 yashiki rule-add --ax-id "com.mitchellh.ghostty.quickTerminal" ignore
 
 yashiki set-auto-raise enabled --delay 100
+yashiki set-auto-raise disabled
+yashiki rule-add --app-name Shortcuts ignore
+yashiki rule-add --app-name Leader Key ignore

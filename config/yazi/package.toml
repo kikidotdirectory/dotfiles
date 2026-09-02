@@ -13,6 +13,11 @@ use = "stelcodes/bunny"
 rev = "7137a44"
 hash = "58bfa473bcac8574400e573787954512"
 
+[[plugin.deps]]
+use = "WhoSowSee/whoosh"
+rev = "ec2e6f7"
+hash = "59e984146fa6b20c441817444d5fdd61"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
 rev = "9276ffa"

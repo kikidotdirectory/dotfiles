@@ -7,7 +7,10 @@ export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
 export HISTSIZE=10000                   # Maximum events for internal history
 export SAVEHIST=10000                   # Maximum events in history file
 
+export TEMPLATESDIR="$DOTFILES/templates"
+
 # editor
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+. "$HOME/.cargo/env"

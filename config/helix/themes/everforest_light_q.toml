@@ -1,0 +1,6 @@
+inherits = "everforest_light"
+
+"ui.help" = { fg = "grey2", bg = "bg0" }
+"ui.menu" = { fg = "grey2", bg = "bg0" }
+"ui.menu.selected" = { fg = "bg2", bg = "grey0" }
+"ui.menu.scroll" = { fg = "bg2", bg = "bg0" }

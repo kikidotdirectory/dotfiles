@@ -129,7 +129,7 @@ on-window-detected = [
     # itself; the built-in display's notch normally provides this space for
     # free, but the extended display has no notch, so give the main monitor
     # explicit room whichever physical display it happens to be.
-    outer.top =        [{ monitor.main = 44 }, 8]
+    outer.top =        [{ monitor."Built-in Retina Display" = 8}, 34] # for notch
     outer.right =      8
 
 # 'main' binding mode declaration

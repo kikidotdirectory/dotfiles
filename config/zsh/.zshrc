@@ -13,9 +13,6 @@ source $DOTFILES/config/zsh/aliases/aliases
 # Functions
 source $DOTFILES/config/zsh/functions.zsh
 
-# Deno runtime environment
-. "/Users/kiki/.deno/env"
-
 eval "$(fnm env --use-on-cd --shell zsh)"
 command -v tab >/dev/null && source <(tab npm zsh)
 source <(tc complete zsh)

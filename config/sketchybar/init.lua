@@ -68,7 +68,7 @@ local clock = sbar.add("item", "clock", {
 })
 
 local function clock_update()
-	sbar.exec("date '+%d/%m %H:%M'", function(result)
+	sbar.exec("date '+%m/%d %H:%M'", function(result)
 		clock:set({ label = result })
 	end)
 end
@@ -111,9 +111,9 @@ local function ram_update()
 		local label, color
 
 		if level == 4 then
-			label, color = "Critical", 0xffff3b30
+			label, color = "􀫦􀃮", 0xffff3b30
 		elseif level == 2 then
-			label, color = "Warning", 0xffff9500
+			label, color = "􀫦", 0xffff9500
 		end
 
 		ram:set({

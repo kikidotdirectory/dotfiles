@@ -15,7 +15,7 @@ return {
 
 		-- Must match `persistent-workspaces` in aerospace.toml: these are
 		-- always shown, in this order, regardless of whether they have windows.
-		PERSISTENT_WORKSPACES = { "1", "2", "3" },
+		PERSISTENT_WORKSPACES = { "1", "2", "3", "4" },
 	},
 
 	-- https://github.com/kvndrsslr/sketchybar-app-font

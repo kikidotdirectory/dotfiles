@@ -1,0 +1,5 @@
+font-family = "CommitMono Nerd Font"
+font-size = 12.5
+theme = light: everforest-light-medium, dark: everforest-dark-medium
+keybind = global:ctrl+backquote=toggle_quick_terminal
+macos-option-as-alt=left

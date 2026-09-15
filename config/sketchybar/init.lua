@@ -17,7 +17,7 @@ sbar.begin_config()
 
 sbar.bar({
 	position = "top",
-	height = 40,
+	height = 30,
 	display = "main",
 	color = 0x00000000,
 	border_width = 0,
@@ -33,18 +33,18 @@ sbar.bar({
 -- https://felixkratz.github.io/SketchyBar/config/items
 
 sbar.default({
-	padding_left = 5,
+	padding_left = 0,
 	padding_right = 5,
 	icon = {
 		font = { family = "CommitMono Nerd Font", style = "Bold", size = 17.0 },
 		color = 0xffffffff,
-		padding_left = 4,
+		padding_left = 0,
 		padding_right = 4,
 	},
 	label = {
 		font = { family = "CommitMono", style = "Regular", size = 14.0 },
 		color = 0xffffffff,
-		padding_left = 4,
+		padding_left = 0,
 		padding_right = 4,
 	},
 })

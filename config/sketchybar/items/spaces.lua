@@ -1,3 +1,7 @@
+-- Inspiration from:
+-- https://github.com/Kainoa-h/aerospace-sketchybar/blob/main/sketchybar/sketchybarrc
+-- https://github.com/haxybaxy/dotfiles/tree/master/sketchybar/.config/sketchybar
+
 local sbar = require("sketchybar")
 local constants = require("constants")
 local colors = require("colors")
@@ -56,14 +60,14 @@ local function ensureItem(id)
 			font = { family = "CommitMono", style = "Regular", size = 15.0 },
 			string = id,
 			color = getWorkspaceColor(id),
-			padding_left = 6,
+			padding_left = 0,
 			padding_right = 4,
 		},
 		label = {
 			font = { family = constants.APP_ICON_FONT, style = "Regular", size = 14.0 },
 			string = "",
 			padding_left = 2,
-			padding_right = 8,
+			padding_right = 12,
 		},
 		click_script = "aerospace workspace " .. id,
 	})

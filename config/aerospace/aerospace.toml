@@ -212,10 +212,9 @@ on-window-detected = [
     alt-shift-e     = 'move-node-to-workspace E'
     alt-shift-u     = 'move-node-to-workspace U'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    alt-tab         = 'workspace-back-and-forth'
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-    alt-shift-tab   = 'move-workspace-to-monitor --wrap-around next'
+    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+    alt-tab         = 'list-workspaces --monitor focused --empty no | workspace --stdin next'
+    alt-shift-tab   = 'list-workspaces --monitor focused --empty no | workspace --stdin prev'
 
     # Mode bindings
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode

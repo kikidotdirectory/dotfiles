@@ -2,10 +2,6 @@
 # Fallback value (if you omit the key): config-version = 1
 config-version = 2
 
-# You can use it to add commands that run after AeroSpace startup.
-# Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
-
 # Start AeroSpace at login
 start-at-login = true
 
@@ -47,9 +43,29 @@ persistent-workspaces = ["1", "2", "3" ]
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-on-mode-changed = []
+on-mode-changed = ['exec-and-forget sketchybar --trigger aerospace_mode_changed']
+
+# You can use it to add commands that run after AeroSpace startup.
+# Available commands : https://nikitabobko.github.io/AeroSpace/commands
+
+# Run Sketchybar together with AeroSpace
+# sketchybar has a built-in detection of already running process,
+# so it won't be run twice on AeroSpace restart
+after-startup-command = ['exec-and-forget sketchybar']
+
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
 
 on-window-detected = [
+  # Refreshes sketchybar's space icons on every new window, regardless of
+  # which app it belongs to. check-further-callbacks lets the app-specific
+  # move-node-to-workspace rules below still run normally after this.
+  {
+    check-further-callbacks = true,
+    run = 'exec-and-forget sketchybar --trigger aerospace_workspace_change',
+  },
   {
     if = 'test %{app-bundle-id} = com.apple.finder',
     run = ['move-node-to-workspace F'],
@@ -104,7 +120,12 @@ on-window-detected = [
     inner.vertical =   4
     outer.left =       8
     outer.bottom =     8
-    outer.top =        8
+    # The main monitor is where Sketchybar's bar renders (see `display = "main"`
+    # in config/sketchybar/init.lua). It needs extra top clearance for the bar
+    # itself; the built-in display's notch normally provides this space for
+    # free, but the extended display has no notch, so give the main monitor
+    # explicit room whichever physical display it happens to be.
+    outer.top =        [{ monitor.main = 44 }, 8]
     outer.right =      8
 
 # 'main' binding mode declaration
@@ -199,6 +220,7 @@ on-window-detected = [
     alt-l           = ['exec-and-forget open -a Fantastical',        'workspace L']
     alt-o           = ['exec-and-forget open -a Obsidian',           'workspace O']
     alt-d           = ['exec-and-forget open -a Figma',              'workspace D']
+    alt-m           = ['exec-and-forget open -a Messages',           'workspace M']
     alt-s           = ['exec-and-forget open -a Safari',             'workspace S']
     alt-e           = ['exec-and-forget open -a Mail',               'workspace E']
     alt-u           = ['exec-and-forget open -a Doppler',            'workspace U']

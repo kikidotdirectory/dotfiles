@@ -1,0 +1,7 @@
+#!/usr/bin/env lua
+
+-- Entire config lives in init.lua, written in Lua via SbarLua:
+-- https://github.com/FelixKratz/SbarLua
+local self_path = debug.getinfo(1, "S").source:sub(2)
+local config_dir = self_path:match("(.*/)")
+dofile(config_dir .. "init.lua")

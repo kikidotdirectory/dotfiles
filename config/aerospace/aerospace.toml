@@ -102,6 +102,10 @@ on-window-detected = [
     if = 'test %{app-bundle-id} = co.brushedtype.doppler-macos',
     run = 'move-node-to-workspace U',
   },
+  {
+    if = 'test %{app-bundle-id} = com.apple.ActivityMonitor',
+    run = 'move-node-to-workspace A',
+  },
 ]
 
 [key-mapping]
@@ -224,6 +228,7 @@ on-window-detected = [
     alt-s           = ['exec-and-forget open -a Safari',             'workspace S']
     alt-e           = ['exec-and-forget open -a Mail',               'workspace E']
     alt-u           = ['exec-and-forget open -a Doppler',            'workspace U']
+    alt-a           = ['exec-and-forget open -a "Activity Monitor"', 'workspace A']
 
     # Move focused window to an app's workspace (mirrors alt-shift-1..9 for numbered workspaces)
     alt-shift-c     = 'move-node-to-workspace C'

@@ -1,0 +1,8 @@
+{
+  "theme": "base",
+  "themeCSS": ".node rect, .node circle, .node ellipse, .node polygon { stroke-width: 1.5px !important; } .edgePath .path, .flowchart-link { stroke-width: 2px !important; } .hidden > rect, .hidden > circle, .hidden > polygon { fill: none; stroke: none; }",
+  "layout": "elk",
+  "flowchart": {
+    "curve": "stepAfter"
+  }
+}

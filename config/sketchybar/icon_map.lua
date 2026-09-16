@@ -683,7 +683,7 @@ return {
 	[ [[Ruffle]] ] = ":ruffle:",
 	[ [[RustDesk]] ] = ":rustdesk:",
 	[ [[SABnzbd]] ] = ":sabnzbd:",
-	[ [[Safari]] ] = ":safari:",
+	[ [[Safari]] ] = "􀎬",
 	[ [[Safari浏览器]] ] = ":safari:",
 	[ [[Safari Technology Preview]] ] = ":safari:",
 	[ [[Screencap]] ] = ":screencap:",

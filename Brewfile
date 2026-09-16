@@ -12,6 +12,7 @@ brew "tree-sitter-cli"
 brew "neovim"
 # General-purpose scripting language
 brew "php"
+brew "uv"
 # Dependency Manager for PHP
 brew "composer"
 # Secure runtime for JavaScript and TypeScript

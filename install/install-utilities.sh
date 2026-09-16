@@ -11,11 +11,7 @@ if [[ ! -d "$DOTFILES/utilities/tc" ]]; then
     echo "  open 1Password, sign in, and enable Settings > Developer > Use the SSH Agent, then re-run" >&2
     exit 1
   fi
-
-  git clone git@github.com:kikidotdirectory/tc.git "$DOTFILES/utilities/tc"
 fi
-
-(cd "$DOTFILES/utilities/tc" && npm install && npm run build && npm link)
 
 if [[ ! -d "$DOTFILES/utilities/SbarLua" ]]; then
   git clone --depth 1 https://github.com/FelixKratz/SbarLua.git "$DOTFILES/utilities/SbarLua"

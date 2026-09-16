@@ -10,14 +10,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-tc() {
-	if [ "$1" = "cd" ]; then
-		cd "$(command tc cd)"
-	else
-		command tc "$@"
-	fi
-}
-
 di() {
 	dprint init "$@"
 	jq '.useTabs = true' dprint.json >tmp.json && mv tmp.json dprint.json

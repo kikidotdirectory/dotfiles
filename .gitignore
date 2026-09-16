@@ -1,5 +1,6 @@
 .DS_Store
 /utilities/
+/config/nvim/
 
 .zcompdump
 .zsh_history

@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
+set -e
 
-ln -sf "$DOTFILES/config/leaderkey" "$HOME/.config"
-ln -sf "$DOTFILES/config/yashiki" "$HOME/.config"
-ln -sf "$DOTFILES/config/direnv" "$HOME/.config"
-ln -sf "$DOTFILES/config/aerospace" "$HOME/.config"
+mkdir -p ~/.config
+
+for src in ~/dotfiles/config/*; do
+    name=$(basename "$src")
+    dest=~/.config/"$name"
+
+    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+        mv "$dest" "$dest.bak"
+    fi
+
+    ln -sfn "$src" "$dest"
+done

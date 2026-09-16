@@ -2,10 +2,12 @@
 
 set -o pipefail
 
-source ./config/zsh/zshenv
+source ./config/zsh/.zshenv
 
 # for file in $ROOT_DIR/*(.); echo $file;
 
 . "$DOTFILES/install/install-zsh.sh"
+. "$DOTFILES/install/install-config.sh"
+. "$DOTFILES/install/install-ssh.sh"
 . "$DOTFILES/install/install-utilities.sh"
 
